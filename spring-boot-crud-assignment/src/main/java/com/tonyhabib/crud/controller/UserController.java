@@ -1,5 +1,6 @@
 package com.tonyhabib.crud.controller;
 
+import com.tonyhabib.crud.entity.Domain;
 import com.tonyhabib.crud.entity.User;
 import com.tonyhabib.crud.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,6 +12,7 @@ import java.util.List;
 public class UserController {
     @Autowired
     private UserService service;
+
 
     //Create 1 User
     @PostMapping("/api/users")
@@ -41,5 +43,10 @@ public class UserController {
     @DeleteMapping("/api/users/{id}")
     public String deleteUser (@PathVariable int id){
         return service.deleteUser(id);
+    }
+
+    @GetMapping("/api/domains")
+    public List<Domain> listDomains(){
+        return service.listDomains();
     }
 }
